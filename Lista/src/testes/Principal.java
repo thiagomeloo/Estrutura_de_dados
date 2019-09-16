@@ -15,7 +15,7 @@ public class Principal {
         lista.add(a1);
         lista.add(a2);
         
-        //lista.remover(a1);
+        lista.remover(a1);
         //lista.remover(a2);
         
         No n = lista.buscar(a2);
