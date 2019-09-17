@@ -10,7 +10,7 @@ public class Lista {
         
         No no = new No();
         no.setAluno(aluno);
-        no.proximo = primeiro;
+        no.setProximo(primeiro);
         primeiro = no;
         
     }
