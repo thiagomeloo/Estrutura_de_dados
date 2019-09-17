@@ -18,7 +18,7 @@ public class ListaCircular {
         if(inicio == null){
             inicio = no;
             fim = no;
-            no.setProximo(inicio);
+            fim.setProximo(inicio);
         }else{
             no.setProximo(inicio);
             inicio = no;
@@ -26,17 +26,26 @@ public class ListaCircular {
         }
     }
     
-    public void remover(Aluno aluno){
+    public void remover(Aluno aluno) {
         No noAtual = inicio;
-        if(inicio == null){
+        No noAnterior = inicio;
+        if (inicio == null) {
             //retorna que ta vazio
-        }else {
-            if(aluno.equals(inicio.getAluno()) && fim.getProximo() == inicio){
-                inicio = null;
-                fim = null;
-            }
+            System.out.println("vazio");
+        } else {
             
-            //INCOMPLETOOOOOOOO
+            while (noAtual != null) {
+                if(aluno.equals(inicio.getAluno()) && fim.getProximo() == inicio){
+                    inicio = null;
+                    fim = null;
+                }else {
+                    if (aluno.equals(inicio.getAluno())) {
+                        System.out.println("inicio");
+                    }
+                    
+                }
+            }
+
         }
 
     }
