@@ -4,8 +4,8 @@ import dominio.Aluno;
 
 public class No {
 
-    Aluno aluno;
-    No proximo;
+    private Aluno aluno;
+    private No proximo;
 
     public Aluno getAluno() {
         return aluno;
