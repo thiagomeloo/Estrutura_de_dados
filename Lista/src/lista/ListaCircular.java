@@ -3,53 +3,75 @@ package lista;
 import dominio.Aluno;
 
 public class ListaCircular {
-    
+
     No inicio;
     No fim;
-    
-    public ListaCircular(){
+
+    public ListaCircular() {
         inicio = null;
         fim = null;
     }
-    
-    public void add(Aluno aluno){
+
+    public void add(Aluno aluno) {
         No no = new No();
         no.setAluno(aluno);
-        if(inicio == null){
+        if (inicio == null) {
             inicio = no;
             fim = no;
             fim.setProximo(inicio);
-        }else{
+        } else {
             no.setProximo(inicio);
             inicio = no;
             fim.setProximo(inicio);
         }
     }
-    
-    public void remover(Aluno aluno) {
-        No noAtual = inicio;
-        No noAnterior = inicio;
+
+    public String remover(Aluno aluno) {
+        
+        String retorno = "";
+        
         if (inicio == null) {
-            //retorna que ta vazio
-            System.out.println("vazio");
-        } else {
             
-            while (noAtual != null) {
-                if(aluno.equals(inicio.getAluno()) && fim.getProximo() == inicio){
-                    inicio = null;
-                    fim = null;
-                }else {
-                    if (aluno.equals(inicio.getAluno())) {
-                        System.out.println("inicio");
+            return ("vazio");
+            
+        }
+        if (aluno.equals(inicio.getAluno())) {
+
+            if (aluno.equals(fim.getAluno())) {
+
+                inicio = null;
+                fim = null;
+
+            } else {
+
+                inicio = inicio.getProximo();
+                fim.setProximo(inicio);
+
+            }
+            
+            No noAtual = inicio.getProximo();
+            No noAnterior = inicio;
+            
+            while(noAtual != inicio){
+                if(aluno.equals(noAtual.getAluno())){
+                    
+                    if(noAtual == fim){
+                      fim = noAnterior;  
                     }
                     
+                    noAnterior = noAtual.getProximo();
+                    
+                    retorno = "Removido";
+                    
+                }else{
+                    
+                    noAnterior = noAtual;
+                    noAtual = noAtual.getProximo();
+
                 }
             }
-
         }
-
+        
+        return retorno;
     }
-    
-    
-    
 }
